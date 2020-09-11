@@ -9,7 +9,7 @@ export default class Button extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={[styles.container, this.props.customStyle]}>
                 <TouchableOpacity
                     style={styles.button}
                     onPressIn={this.props.onPress}

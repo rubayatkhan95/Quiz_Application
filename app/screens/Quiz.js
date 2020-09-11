@@ -11,61 +11,72 @@ export default class Quiz extends Component {
         super(props);
         this.state = {
             changeView: true,
+            array: []
         };
     }
-
-    async componentDidMount() {
-
+    componentDidMount() {
         var count = this.props.count;
-        console.warn(count)
-    }
-
-    onChangeNumber = (value) => {
-        if (value > 0) {
-            this.setState({ changeView: true })
+        var tempArray = []
+        for (let i = 0; i < count; i++) {
+            tempArray.push({
+                i:true
+            }) 
         }
-    }
-    onPressButton = () => {
+        this.setState({array:tempArray})
 
     }
-
-    renderContent = () => {
+ 
+    renderQuiz = (index) => {
         return (
-            <ScrollView>
-                <View style={{ flex: 1, alignItems: "center" }}>
-                    <Input placeholder="Question" customStyle={{ width: "95%", marginTop: 15 }}></Input>
-                    <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15 }}>
-                        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
-                            <View><Text style={{ color: "black", fontSize: 18 }}>1.</Text></View>
-                            <Input customStyle={{ width: "80%" }} />
+            <View style={{ flex: 1, alignItems: "center" , marginTop:20}}>
+                <Text style={{ color: "black", fontSize: 18 }}>Question No : {index+1}</Text>
+                <Input placeholder="Question" customStyle={{ width: "95%", marginTop: 15 }}></Input>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15 }}>
+                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
+                        <View>
+                            <Text style={{ color: "black", fontSize: 18 }}>1.</Text>
                         </View>
-                        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
-                            <View><Text style={{ color: "black", fontSize: 18 }}>2.</Text></View>
-                            <Input customStyle={{ width: "80%" }} />
-                        </View>
+                        <Input customStyle={{ width: "80%" }} />
                     </View>
-
-                    <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15 }}>
-                        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
-                            <View><Text style={{ color: "black", fontSize: 18 }}>3.</Text></View>
-                            <Input customStyle={{ width: "80%" }} />
+                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
+                        <View>
+                            <Text style={{ color: "black", fontSize: 18 }}>2.</Text>
                         </View>
-                        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
-                            <View><Text style={{ color: "black", fontSize: 18 }}>4.</Text></View>
-                            <Input customStyle={{ width: "80%" }} />
-                        </View>
+                        <Input customStyle={{ width: "80%" }} />
                     </View>
-
                 </View>
 
-            </ScrollView>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15 }}>
+                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
+                        <View><Text style={{ color: "black", fontSize: 18 }}>3.</Text></View>
+                        <Input customStyle={{ width: "80%" }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "row" }}>
+                        <View><Text style={{ color: "black", fontSize: 18 }}>4.</Text></View>
+                        <Input customStyle={{ width: "80%" }} />
+                    </View>
+                </View>
+
+            </View>
         )
+    }
+
+    onPressButton = () =>{
+        Actions.reset("Home")
     }
 
     render() {
         return (
-
-            this.renderContent()
+            <ScrollView>
+                <View style={{paddingTop:20}}></View>
+                {this.state.array.map((value, index) =>
+                    this.renderQuiz(index))
+                }
+                <View style={{ marginTop: 50 , justifyContent:"center" , alignItems:"center" }}>
+                        <Button buttonTitle="Add" onPress={() => this.onPressButton()} />
+                </View>
+                <View style={{height:50}}></View>
+            </ScrollView>
         )
     }
 }

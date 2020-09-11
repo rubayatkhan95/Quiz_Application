@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene, Stack, Drawer, Actions, ActionConst, Tabs } from 'react-native-router-flux';
 import AddQuiz from '../screens/AddQuiz';
 import Authentication from '../screens/Authentication';
+import AvailableQuizes from '../screens/AvailableQuizes';
 import Home from '../screens/Home';
+import InputUsername from '../screens/InputUsername';
 import Login from '../screens/Login';
 import Quiz from '../screens/Quiz';
+import QuizDetails from '../screens/QuizDetails';
 import Registration from '../screens/Registration';
-
-
 export default class RoutePages extends Component {
     constructor() {
         super()
@@ -30,7 +30,7 @@ export default class RoutePages extends Component {
                         component={Login}
                         hideNavBar={true}
                     />
-                     <Scene
+                    <Scene
                         key="Registration"
                         component={Registration}
                         hideNavBar={true}
@@ -40,14 +40,29 @@ export default class RoutePages extends Component {
                         component={Home}
                         hideNavBar={true}
                     />
-                      <Scene
+                    <Scene
                         key="AddQuiz"
                         component={AddQuiz}
                         hideNavBar={true}
                     />
-                      <Scene
+                    <Scene
                         key="Quiz"
                         component={Quiz}
+                        hideNavBar={true}
+                    />
+                    <Scene
+                        key="AvailableQuizes"
+                        component={AvailableQuizes}
+                        hideNavBar={true}
+                    />
+                    <Scene
+                        key="QuizDetails"
+                        component={QuizDetails}
+                        hideNavBar={true}
+                    />
+                    <Scene
+                        key="InputUsername"
+                        component={InputUsername}
                         hideNavBar={true}
                     />
                 </Scene>
@@ -55,10 +70,3 @@ export default class RoutePages extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-
-});
-
-
-//export default RoutePages;

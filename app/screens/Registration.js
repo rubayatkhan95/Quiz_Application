@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, TextInput, Text } from "react-native";
+import { View, StyleSheet, TextInput, Text, Image , ToastAndroid} from "react-native";
 import Input from "../components/Input";
 import Button from "../components/Button"
 import { Actions } from "react-native-router-flux";
@@ -58,13 +58,26 @@ export default class Registration extends Component {
                 email:this.state.email
             }
             await AsyncStorage.setItem('user', JSON.stringify(user));
-            Actions.Login({type:"replace"})
+            ToastAndroid.showWithGravityAndOffset(
+                "Successfully Registered!",
+                ToastAndroid.SHORT,
+                ToastAndroid.BOTTOM,
+                25,
+                50,
+            );
+            setTimeout(() => {
+                Actions.reset("Login")
+            }, 1000);
+           
         }
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <View style={{ marginBottom: 40, height:150, width:150 , borderRadius:75 }}>
+                    <Image  source ={require("../assets/logo.png")} style={{height:150, width:150, borderRadius:75}}/>
+                </View>
                 <View style={{ marginBottom: 15 }}>
                     <Input placeholder="Username" onChangeText={(value) => this.onChangeUsername(value)} />
                     {this.state.validUsername == false && this.state.hasUsernameError == true ? <Text style={{ marginLeft: 5, color: "red" }}>Invalid Username (at least 4 characters)</Text> : null}

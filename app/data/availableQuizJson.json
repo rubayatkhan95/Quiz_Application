@@ -1,0 +1,50 @@
+[
+    {
+        "module": {
+            "number": 1,
+            "name": "Mathematics"
+        }
+    },
+    {
+        "module": {
+            "number": 2,
+            "name": "English"
+    }
+    },
+    {
+        "module": {
+            "number": 3,
+            "name": "Physics"
+        }
+    },
+    {
+        "module": {
+            "number": 4,
+            "name": "Chemistry"
+        }
+    },
+    {
+        "module": {
+            "number": 5,
+            "name": "Economics"
+        }
+    },
+    {
+        "module": {
+            "number": 6,
+            "name": "Programming Language"
+        }
+    },
+    {
+        "module": {
+            "number": 7,
+            "name": "Data Science"
+        }
+    },
+    {
+        "module": {
+            "number": 8,
+            "name": "Biology"
+        }
+    }
+]

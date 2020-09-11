@@ -17,7 +17,6 @@ export default class AddQuiz extends Component {
     async componentDidMount() {
         let user = await AsyncStorage.getItem("user");
         let userObject = JSON.parse(user)
-        console.warn(userObject.username)
     }
 
     onChangeNumber = (value) => {
@@ -40,7 +39,7 @@ export default class AddQuiz extends Component {
                 <View>
                     <View style={{ marginBottom: 15 }}>
                         <Text style={{ fontSize: 15, color: "blue", marginBottom: 5 }}>Enter Number of Questions</Text>
-                        <Input onChangeText={(value) => this.onChangeNumber(value)} />
+                        <Input onChangeText={(value) => this.onChangeNumber(value)} keyboardType="numeric" />
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <Button buttonTitle="Add" onPress={() => this.onPressButton()} />

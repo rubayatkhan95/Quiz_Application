@@ -122,7 +122,7 @@ export default class Login extends Component {
                     <Input placeholder="Email" onChangeText={(value) => this.onChangeEmail(value)} />
                 </View>
                 <View style={{ marginBottom: 15 }}>
-                    <Input placeholder="Password" onChangeText={(value) => this.onChangePassword(value)} />
+                    <Input placeholder="Password" onChangeText={(value) => this.onChangePassword(value)} secureTextEntry ={true}/>
                 </View>
                 <Button buttonTitle="Login" onPress={() => this.onPressButton()} />
                 <Button

@@ -16,6 +16,7 @@ export default class Input extends Component {
                 onBlur={this.props.onBlur}
                 value={this.props.value}
                 keyboardType={this.props.keyboardType}
+                secureTextEntry={this.props.secureTextEntry}
             />
         )
 
